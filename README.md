@@ -160,4 +160,3 @@ Validation errors (Zod) return status `400` with a detailed `errors` array.
 - [Prisma](https://www.prisma.io/)
 - [Zod](https://zod.dev/)
 - [Cloudinary](https://cloudinary.com/)
-- 
