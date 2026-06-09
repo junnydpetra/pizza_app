@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { ListCategoryService } from "../../services/category/ListCategoryService";
+import { ListCategoriesService } from "../../services/category/ListCategoriesService";
 
 class ListCategoryController {
     async handle(req: Request, res: Response) {
-        const listCategory = new ListCategoryService();
+        const listCategory = new ListCategoriesService();
 
         const categories = await listCategory.execute();
 

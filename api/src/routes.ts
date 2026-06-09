@@ -10,12 +10,15 @@ import { isAuthenticated } from "./middlewares/isAuthenticated";
 import { isAdmin } from "./middlewares/isAdmin";
 import { CreateCategoryController } from "./controllers/category/CreateCategoryController";
 import { categorySchema } from "./schemas/categorySchema";
-import { ListCategoryController } from "./controllers/category/ListCategoryController";
+import { ListCategoryController } from "./controllers/category/ListCategoriesController";
 import { CreateProductController } from "./controllers/product/CreateProductController";
 import { listProductByCategorySchema, productSchema } from "./schemas/productSchema";
 import { ListProductController } from "./controllers/product/ListProductController";
 import { DeleteProductController } from "./controllers/product/DeleteProductController";
 import { ListProductByCategoryController } from "./controllers/product/ListProductByCategoryController";
+import { ListOrdersController } from "./controllers/order/ListOrdersController";
+import { createOrderSchema } from "./schemas/orderSchema";
+import { CreateOrderController } from "./controllers/order/CreateOrderController";
 
 const router = Router();
 const upload = multer(uploadConfig);
@@ -39,5 +42,7 @@ router.get("/products", isAuthenticated, new ListProductController().handle);
 router.delete("/product", isAuthenticated, isAdmin, new DeleteProductController().handle);
 router.get("/category/product", isAuthenticated, validateSchema(listProductByCategorySchema), new ListProductByCategoryController().handle);
 
+router.post("/order", isAuthenticated, validateSchema(createOrderSchema), new CreateOrderController().handle);
+router.get("/orders", isAuthenticated, new ListOrdersController().handle);
 
 export { router };

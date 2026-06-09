@@ -1,11 +1,11 @@
 import prismaClient from "../../prisma/index";
 
-interface ListProductServiceProps {
+interface ListProductsServiceProps {
     disabled?: string;
 }
 
-class ListProductService {
-    async execute({ disabled }: ListProductServiceProps) {
+class ListProductsService {
+    async execute({ disabled }: ListProductsServiceProps) {
         try {
             const products = await prismaClient.product.findMany({
                 where: {
@@ -39,4 +39,4 @@ class ListProductService {
     }
 }
 
-export { ListProductService };
+export { ListProductsService };

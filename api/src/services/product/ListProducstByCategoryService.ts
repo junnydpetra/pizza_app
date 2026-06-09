@@ -1,11 +1,11 @@
 import prismaClient from "../../prisma/index";
 
-interface ListProductByCategoryServiceProps {
+interface ListProducstByCategoryServiceProps {
     category_id?: string;
 }
 
-class ListProductByCategoryService {
-    async execute({ category_id }: ListProductByCategoryServiceProps) {
+class ListProducstByCategoryService {
+    async execute({ category_id }: ListProducstByCategoryServiceProps) {
         try {
             const category = await prismaClient.category.findUnique({
                 where: {
@@ -50,4 +50,4 @@ class ListProductByCategoryService {
     }
 }
 
-export { ListProductByCategoryService };
+export { ListProducstByCategoryService };
